@@ -42,6 +42,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'develop' => [
+            'driver' => 'local',
+            'root' => env('DEV_OSS_ROOT', storage_path('app/public')).'/'.env('APP_NAME'),
+            'url' => env('DEV_OSS_URL', env('APP_URL').'/storage').'/'.env('APP_NAME'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
