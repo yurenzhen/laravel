@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Vivian\EasyApi\Exceptions\ApiExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -27,6 +28,13 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+    public function render($request, Throwable $e)
+    {
+        ApiExceptionHandler::render($request, $e);
+
+        return parent::render($request, $e);
+    }
+
     /**
      * Register the exception handling callbacks for the application.
      *
@@ -34,8 +42,11 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        ApiExceptionHandler::pushDontReport($this->dontReport);
+        ApiExceptionHandler::pullInternalDontReport($this->internalDontReport);
+        ApiExceptionHandler::renderable($this);
+        ApiExceptionHandler::reportable($this);
+
+        parent::register();
     }
 }
