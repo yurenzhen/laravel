@@ -67,9 +67,11 @@ return [
     | will be used by the PHP date and date-time functions. We have gone
     | ahead and set this to a sensible default for you out of the box.
     |
+    | options: ['UTC', 'PRC', 'Asia/Shanghai',]
+    |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'Asia/Shanghai'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,9 +82,11 @@ return [
     | by the translation service provider. You are free to set this value
     | to any of the locales which will be supported by the application.
     |
+    | options: ['en', 'zh_CN',]
+    |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'zh_CN'),
 
     /*
     |--------------------------------------------------------------------------
@@ -106,9 +110,11 @@ return [
     | data for your database seeds. For example, this will be used to get
     | localized telephone numbers, street address information and more.
     |
+    | options: ['en_US', 'zh_CN',]
+    |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => env('APP_FAKER_LOCALE', 'zh_CN'),
 
     /*
     |--------------------------------------------------------------------------
