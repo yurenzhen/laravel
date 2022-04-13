@@ -40,6 +40,15 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            /*
+             * https://laravel.p2hp.com/cndocs/9.x/passport#installation
+             *
+             * options: ['token', 'passport',]
+             */
+            'driver' => 'passport',
+            'provider' => 'users',
+        ],
     ],
 
     /*
