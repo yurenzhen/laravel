@@ -57,5 +57,14 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
+        }, {
+            "type": "composer",
+            "url": "https://mirrors.yrz.name:93/composer/public"
+        }
+    ]
 }
